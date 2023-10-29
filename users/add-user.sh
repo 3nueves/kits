@@ -1,5 +1,4 @@
 #!/bin/bash
-# invisiblebits.com
 # v1.0 by David Moya
 
 USER=$1
