@@ -1,0 +1,7 @@
+servers:
+  - name: manager-02
+    user: dml
+    hosts: [10.10.0.67]
+    port: 22
+    password: $PASSWORD
+    pkey: "/home/dml/.ssh/id_rsa"
