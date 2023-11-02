@@ -1,3 +1,4 @@
 kits:
 - id_rsa.pub
+- chec-user.sh
 - add-user.sh

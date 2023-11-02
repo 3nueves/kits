@@ -16,7 +16,7 @@ touch /home/$USER/.ssh/authorized_keys
 cat $HOME/.ikctl/id_rsa_kubernetes-unelink.pub >> /home/$USER/.ssh/authorized_keys
 chmod 700 /home/$USER/.ssh
 chmod 600 /home/$USER/.ssh/authorized_keys
-chown 1000.1000 /home/$USER -R
+chown $uid.$(getent passwd | grep ${USER} | cut -d ":" -f 4) /home/$USER -R
 
 echo -e "Add nopasswd in sodoers group\n"
 echo -e "${USER} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/$USER

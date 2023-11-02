@@ -10,6 +10,7 @@ getent passwd $username > /dev/null
 
         for i in $username;
         do 
+            .add-user.sh $username 1005
             echo "Success. An account has been created for $username."      
         done
 
