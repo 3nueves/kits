@@ -1,19 +1,11 @@
 #!/bin/bash
 
-#This script will ask the user for their name, and if no such user exists will create a user
+getent passwd $user > /dev/null
 
-username=$1
-
-getent passwd $username > /dev/null
-
-    if [ $? -ne 0 ]; then
-
-        for i in $username;
-        do 
-            .add-user.sh $username 1005
-            echo "Success. An account has been created for $username."      
-        done
-
-   else  echo "Denied. An account already exists for $username"
-
-   fi
+if [ $? -ne 0 ]; then
+    echo "Account not exist for $user"    
+    echo "1" > $HOME/.ikctl/user_not_exist
+else  
+    echo "Account already exists for $user"
+    rm -rf $HOME/.ikctl/user_not_exist
+fi

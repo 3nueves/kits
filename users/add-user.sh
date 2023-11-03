@@ -1,28 +1,24 @@
 #!/bin/bash
-# v1.0 by David Moya
 
-USER=$1
-uid=$2
-
-echo -e "Create user $USER with uid $uid\n"
-adduser --home /home/$USER --shell /bin/bash --uid $uid --disabled-password --gecos GECOS $USER
+echo -e "Create user $user with uid $uid\n"
+adduser --home /home/$user --shell /bin/bash --disabled-password --gecos GECOS $user
 
 echo -e "Change password\n"
-echo -en "changeme01\nchangeme01\nchangeme01\n" | passwd $USER
+echo -en "${pass}\n${pass}\n${pass}\n" | passwd $user
 
 echo -e "Enable access from ssh keys\n"
-mkdir -p /home/$USER/.ssh/
-touch /home/$USER/.ssh/authorized_keys
-cat $HOME/.ikctl/id_rsa_kubernetes-unelink.pub >> /home/$USER/.ssh/authorized_keys
-chmod 700 /home/$USER/.ssh
-chmod 600 /home/$USER/.ssh/authorized_keys
-chown $uid.$(getent passwd | grep ${USER} | cut -d ":" -f 4) /home/$USER -R
+mkdir -p /home/$user/.ssh/
+touch /home/$user/.ssh/authorized_keys
+
+if [ -e $HOME/.ikctl/id_rsa_${user}.pub ]; then
+    cat $HOME/.ikctl/id_rsa_${user}.pub >> /home/$user/.ssh/authorized_keys
+fi
+
+chmod 700 /home/$user/.ssh
+chmod 600 /home/$user/.ssh/authorized_keys
+chown $(getent passwd | grep ${user} | cut -d ":" -f 3).$(getent passwd | grep ${user} | cut -d ":" -f 4) /home/$user -R
 
 echo -e "Add nopasswd in sodoers group\n"
-echo -e "${USER} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/$USER
-chmod 440 /etc/sudoers.d/$USER
-usermod -aG sudo $USER
-
-echo -e "Change keywoard to ES\n"
-sed -i "s/pc105/pc104/g" /etc/default/keyboard
-sed -i "s/gb/es/g" /etc/default/keyboard
+echo -e "${user} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/$user
+chmod 440 /etc/sudoers.d/$user
+usermod -aG sudo $user
