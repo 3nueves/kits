@@ -7,10 +7,9 @@ echo -e "Change password\n"
 echo -en "${pass}\n${pass}\n${pass}\n" | passwd $user
 
 echo -e "Enable access from ssh keys\n"
-mkdir -p /home/$user/.ssh/
-touch /home/$user/.ssh/authorized_keys
-
 if [ -e $HOME/.ikctl/id_rsa_${user}.pub ]; then
+    mkdir -p /home/$user/.ssh/
+    touch /home/$user/.ssh/authorized_keys
     cat $HOME/.ikctl/id_rsa_${user}.pub >> /home/$user/.ssh/authorized_keys
 fi
 
