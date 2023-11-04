@@ -1,22 +1,21 @@
 #!/bin/bash
 
-echo -e "Load env\n"
+source .ikctl/users.sh
 
 export users=$*
 export pass="changeme01"
 
-for usr in $users
+for usr in ${users[@]}
 do
     export user=$usr
+    value=$(check_user)
 
-    chmod u+x $HOME/.ikctl/check-users.sh
-    bash -c $HOME/.ikctl/check-users.sh
-
-    echo -e "$user_exist\n"
-
-    if [ -e $HOME/.ikctl/user_not_exist ]; then
-        chmod u+x $HOME/.ikctl/add-user.sh
-        bash -c $HOME/.ikctl/add-user.sh
+    if [ ${value} = "not_exist" ]; then
+        add_user
+        add_ssh_key
+        add_sudoers
+    else
+        echo -e "$user already exist\n"
     fi
 
 done

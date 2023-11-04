@@ -1,6 +1,4 @@
 kits:
-- id_rsa_test2.pub
-- id_rsa_test3.pub
-- check-users.sh
-- add-user.sh
+- id_rsa.pub
+- users.sh
 - main.sh
