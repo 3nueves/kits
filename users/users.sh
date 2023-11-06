@@ -24,12 +24,14 @@ function add_ssh_key(){
         mkdir -p /home/$user/.ssh/
         touch /home/$user/.ssh/authorized_keys
         cat .ikctl/id_rsa_${user}.pub >> /home/$user/.ssh/authorized_keys
+        chmod 700 /home/$user/.ssh
+        chmod 600 /home/$user/.ssh/authorized_keys
+        chown $(getent passwd | grep ${user} | cut -d ":" -f 3):$(getent passwd | grep ${user} | cut -d ":" -f 4) /home/$user -R
+        echo -e "key to $user add\n"
+    else
+        echo -e "id_rsa_${user}.pub not found"
     fi
 
-    chmod 700 /home/$user/.ssh
-    chmod 600 /home/$user/.ssh/authorized_keys
-    chown $(getent passwd | grep ${user} | cut -d ":" -f 3):$(getent passwd | grep ${user} | cut -d ":" -f 4) /home/$user -R
-    echo -e "key to $user add\n"
 }
 
 function add_sudoers(){
