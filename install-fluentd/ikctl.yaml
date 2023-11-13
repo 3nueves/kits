@@ -1,4 +1,4 @@
 kits:
-- forwarder.conf
+- fluentd.conf
 - install-forwarder.sh
 - main.sh
