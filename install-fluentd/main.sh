@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source .ikctl/install-forwarder.sh
+source .ikctl/install-fluent.sh
