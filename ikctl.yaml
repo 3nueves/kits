@@ -2,3 +2,4 @@ kits:
   - create-users/ikctl.yaml
   - show-date/ikctl.yaml
   - install-fluentd/ikctl.yaml
+  - install-telegraf/ikctl.yaml
