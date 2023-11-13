@@ -1,0 +1,4 @@
+kits:
+- telegraf.conf
+- install-telegraf.sh
+- main.sh

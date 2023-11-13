@@ -1,3 +1,4 @@
 kits:
-  - users/ikctl.yaml
-  - date/ikctl.yaml
+  - create-users/ikctl.yaml
+  - show-date/ikctl.yaml
+  - install-fluentd/ikctl.yaml
