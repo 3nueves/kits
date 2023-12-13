@@ -4,9 +4,9 @@ servers:
     hosts: [10.10.0.120]
     port: 22
     password: $PASSWORD
-    # pkey: "/home/dml/.ssh/id_rsa_dmoya"
+    # pkey: "/home/dml/.ssh/id_rsa"
   - name:  devops
     user: kub
     hosts: [10.10.0.12]
     port: 22
-    pkey: "/home/dml/.ssh/id_rsa_kubernetes-unelink"
+    pkey: "/home/dml/.ssh/id_rsa"
