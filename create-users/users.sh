@@ -31,7 +31,6 @@ function add_ssh_key(){
     else
         echo -e "id_rsa_${user}.pub not found"
     fi
-
 }
 
 function add_sudoers(){
