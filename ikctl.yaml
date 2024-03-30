@@ -3,3 +3,4 @@ kits:
   - show-date/ikctl.yaml
   - install-fluentd/ikctl.yaml
   - install-telegraf/ikctl.yaml
+  - install-docker/ikctl.yaml
