@@ -4,3 +4,4 @@ kits:
   - install-fluentd/ikctl.yaml
   - install-telegraf/ikctl.yaml
   - install-docker/ikctl.yaml
+  - kits-testing/ikctl.yaml
