@@ -1,0 +1,7 @@
+kits:
+  - create-users
+  - show-date
+  - install-fluentd
+  - install-telegraf
+  - install-docker
+  - kits-testing
