@@ -5,3 +5,4 @@ kits:
   - install-telegraf
   - install-docker
   - kits-testing
+  - cmd
