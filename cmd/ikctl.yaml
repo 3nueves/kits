@@ -1,5 +1,16 @@
-kits:
+name: cmd
+description: Ejecuta un comando arbitrario en el servidor remoto
+version: "1.0"
+tags:
+  - utils
+  - shell
+debug_level: none
+
+files:
   uploads:
     - cmd.sh
   pipeline:
     - cmd.sh
+
+values:
+  command: "echo hello"

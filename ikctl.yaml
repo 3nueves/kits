@@ -1,4 +1,5 @@
 kits:
+  - cmd
   - create-users
   - show-date
   - install-fluentd
