@@ -1,3 +1,18 @@
-kits:
-- 01-main.sh
-# - 02-test.sh
+name: kits-testing
+description: Kit de pruebas para validar la ejecución de kits
+version: "1.0"
+tags:
+  - testing
+debug_level: full
+
+files:
+  uploads:
+    - 01-main.sh
+    - 02-test.sh
+    - 03-test.sh
+  pipeline:
+    - 01-main.sh
+    - 02-test.sh
+    - 03-test.sh
+
+values: {}

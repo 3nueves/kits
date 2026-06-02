@@ -1,0 +1,5 @@
+kits:
+  uploads:
+    - cmd.sh
+  pipeline:
+    - cmd.sh

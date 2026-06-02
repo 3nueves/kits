@@ -1,7 +1,7 @@
 kits:
-  - create-users/ikctl.yaml
-  - show-date/ikctl.yaml
-  - install-fluentd/ikctl.yaml
-  - install-telegraf/ikctl.yaml
-  - install-docker/ikctl.yaml
-  - kits-testing/ikctl.yaml
+  - create-users
+  - show-date
+  - install-fluentd
+  - install-telegraf
+  - install-docker
+  - kits-testing

@@ -1,4 +1,17 @@
-kits:
-- id_rsa.pub
-- users.sh
-- main.sh
+name: create-users
+description: Crea usuarios en el servidor remoto
+version: "1.0"
+tags:
+  - users
+  - setup
+debug_level: errors
+
+files:
+  uploads:
+    - users.sh
+    - main.sh
+    - id_rsa.pub
+  pipeline:
+    - main.sh
+
+values: {}
