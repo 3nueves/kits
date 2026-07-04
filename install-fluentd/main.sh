@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source .ikctl/install-fluent.sh
+source install-fluent.sh

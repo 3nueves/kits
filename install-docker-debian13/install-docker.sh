@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "=== Installing Docker Engine on Debian ==="
+echo "=== Installing Docker Engine on Debian 13 (trixie) ==="
 
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg
@@ -29,4 +29,7 @@ sudo apt-get install -y \
 echo "=== Enabling and starting docker service ==="
 sudo systemctl enable --now docker
 
-echo "DOCKER_VERSION=$(docker --version)"
+echo "=== Verifying installation ==="
+DOCKER_VERSION=$(docker --version)
+echo "DOCKER_VERSION=$DOCKER_VERSION"
+echo "$DOCKER_VERSION"

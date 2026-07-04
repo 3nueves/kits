@@ -1,8 +1,10 @@
 kits:
   - cmd
   - create-users
+  - create-user
   - show-date
   - install-fluentd
   - install-telegraf
   - install-docker
+  - install-docker-debian13
   - kits-testing

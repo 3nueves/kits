@@ -1,18 +1,7 @@
-name: create-users
-description: Crea un usuario en el servidor remoto con contraseña y clave SSH opcional
-version: "2.0"
-tags:
-  - users
-  - setup
-debug_level: errors
-
-files:
+kits:
   uploads:
+    - id_rsa.pub
     - main.sh
+    - users.sh
   pipeline:
     - main.sh
-
-values:
-  user: "newuser"
-  pass: "changeme01"
-  ssh_public_key: ""

@@ -1,20 +1,7 @@
-name: install-fluentd
-description: Instala y configura Fluentd en el servidor remoto
-version: "1.0"
-tags:
-  - logging
-  - fluentd
-debug_level: errors
-
-files:
+kits:
   uploads:
     - fluentd.conf
     - install-fluent.sh
     - main.sh
   pipeline:
     - main.sh
-
-backup:
-  - /etc/fluent/fluentd.conf
-
-values: {}

@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-# Uso: ikctl -i create-users -s sudo -p USER=miuser PASS=secreta
-# SSH_KEY es opcional: SSH_KEY="ssh-ed25519 AAAA... user@host"
+# Uso: ikctl -i create-user -p USER=miuser PASS=mipass SSH_KEY="ssh-ed25519 AAAA... user@host"
+# SSH_KEY es opcional — si se omite, solo se crea el usuario con contraseña
 
 USER="${USER:-}"
 PASS="${PASS:-}"
@@ -18,6 +18,7 @@ if [ -z "$PASS" ]; then
   exit 1
 fi
 
+# Si el usuario ya existe, salir
 if getent passwd "$USER" > /dev/null 2>&1; then
   echo "USER_CREATED=$USER"
   echo "El usuario $USER ya existe"
@@ -38,16 +39,6 @@ if [ -n "$SSH_KEY" ]; then
   chmod 600 "/home/$USER/.ssh/authorized_keys"
   chown -R "$USER:$USER" "/home/$USER/.ssh"
   echo "Clave SSH configurada"
-else
-  if [ -f id_rsa.pub ]; then
-    echo "Configurando clave SSH desde id_rsa.pub..."
-    mkdir -p "/home/$USER/.ssh"
-    cat id_rsa.pub >> "/home/$USER/.ssh/authorized_keys"
-    chmod 700 "/home/$USER/.ssh"
-    chmod 600 "/home/$USER/.ssh/authorized_keys"
-    chown -R "$USER:$USER" "/home/$USER/.ssh"
-    echo "Clave SSH configurada"
-  fi
 fi
 
 echo "Configurando sudo sin contraseña..."

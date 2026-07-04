@@ -11,7 +11,7 @@ echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https
 
 sudo apt-get update && sudo apt-get install telegraf
 
-cp .ikctl/telegraf.conf  /etc/telegraf/telegraf.conf
+cp telegraf.conf /etc/telegraf/telegraf.conf
 
 systemctl enable telegraf && systemctl restart telegraf
 

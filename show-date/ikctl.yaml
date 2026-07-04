@@ -1,14 +1,7 @@
-name: show-date
-description: Muestra la fecha del servidor remoto
-version: "1.0"
-tags:
-  - utils
-debug_level: none
-
-files:
+kits:
   uploads:
     - date.sh
   pipeline:
     - date.sh
-
-values: {}
+  outputs:
+    DATE: "Fecha del servidor"

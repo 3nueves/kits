@@ -1,0 +1,7 @@
+kits:
+  uploads:
+    - create-user.sh
+  pipeline:
+    - create-user.sh
+  outputs:
+    USER_CREATED: "Usuario creado"

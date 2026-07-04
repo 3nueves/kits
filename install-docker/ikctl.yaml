@@ -1,15 +1,5 @@
-name: install-docker
-description: Instala Docker Engine en servidores Debian
-version: "1.0"
-tags:
-  - docker
-  - containers
-debug_level: errors
-
-files:
+kits:
   uploads:
     - install-docker.sh
   pipeline:
     - install-docker.sh
-
-values: {}

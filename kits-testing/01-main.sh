@@ -1,9 +1,9 @@
 #!/bin/bash
 
-KEY='test'
-TEXT=$*
+KEY='02|03'
+TEXT="${1:-no args}"
 
-for cmd in $(ls -1 | grep $KEY ); do source $cmd ; done
+for cmd in $(ls -1 | grep -E "$KEY"); do source "$cmd"; done
 
-step1 $TEXT
+step1 "$TEXT"
 step2

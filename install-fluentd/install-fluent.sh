@@ -34,7 +34,7 @@ echo -e "Create buffer directory\n"
 mkdir -p /opt/buffer
 chmod 777 /opt/buffer
 
-cp .ikctl/forwarder.conf  /etc/fluent/td-agent.conf
+cp fluentd.conf /etc/fluent/td-agent.conf
 
 systemctl start td-agent
 

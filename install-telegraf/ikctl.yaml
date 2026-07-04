@@ -1,20 +1,7 @@
-name: install-telegraf
-description: Instala y configura Telegraf en el servidor remoto
-version: "1.0"
-tags:
-  - monitoring
-  - telegraf
-debug_level: errors
-
-files:
+kits:
   uploads:
     - telegraf.conf
     - install-telegraf.sh
     - main.sh
   pipeline:
     - main.sh
-
-backup:
-  - /etc/telegraf/telegraf.conf
-
-values: {}

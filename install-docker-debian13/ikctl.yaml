@@ -1,0 +1,7 @@
+kits:
+  uploads:
+    - install-docker.sh
+  pipeline:
+    - install-docker.sh
+  outputs:
+    DOCKER_VERSION: "Version de docker instalada"
