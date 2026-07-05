@@ -3,12 +3,12 @@ set -euo pipefail
 
 echo "=== Installing Docker Engine on Debian 13 (trixie) ==="
 
-sudo apt-get update
-sudo apt-get install -y ca-certificates curl gnupg
+apt-get update
+apt-get install -y ca-certificates curl gnupg
 
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+chmod a+r /etc/apt/keyrings/docker.asc
 
 echo "=== Adding Docker repository ==="
 echo \
@@ -16,10 +16,10 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-sudo apt-get update
+apt-get update
 
 echo "=== Installing Docker packages ==="
-sudo apt-get install -y \
+apt-get install -y \
   docker-ce \
   docker-ce-cli \
   containerd.io \
@@ -27,7 +27,7 @@ sudo apt-get install -y \
   docker-compose-plugin
 
 echo "=== Enabling and starting docker service ==="
-sudo systemctl enable --now docker
+systemctl enable --now docker
 
 echo "=== Verifying installation ==="
 DOCKER_VERSION=$(docker --version)
