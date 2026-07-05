@@ -1,12 +1,18 @@
 #!/bin/bash
 set -euo pipefail
 
-# Uso: ikctl -i create-user -p USER=miuser PASS=mipass SSH_KEY="ssh-ed25519 AAAA... user@host"
+# Uso: ikctl -i create-user -p "USER=miuser" "PASS=mipass" "SSH_KEY=ssh-ed25519 AAAA... user@host"
 # SSH_KEY es opcional — si se omite, solo se crea el usuario con contraseña
 
-USER="${USER:-}"
-PASS="${PASS:-}"
-SSH_KEY="${SSH_KEY:-}"
+# Los parámetros llegan como $1=USER=valor, $2=PASS=valor, $3=SSH_KEY=valor
+# Extraemos el valor quitando el prefijo "KEY="
+for arg in "$@"; do
+    case "$arg" in
+        USER=*) USER="${arg#*=}" ;;
+        PASS=*) PASS="${arg#*=}" ;;
+        SSH_KEY=*) SSH_KEY="${arg#*=}" ;;
+    esac
+done
 
 if [ -z "$USER" ]; then
   echo "Error: USER es obligatorio. Usa -p USER=nombre"
